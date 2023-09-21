@@ -109,4 +109,19 @@ class BilTest {
         bil.bromsa();
         assertTrue(bil.isLightOn(bil.getBromsljus()));
     }
+    @Test
+    void HastighetReverse(){
+        bil.start();
+        bil.shiftGear();
+        assertEquals(bil.getGear(), Gear.REVERSE);
+        bil.gasa();
+        assertEquals(bil.getHastighet(), 10);
+        bil.bromsa();
+        bil.bromsa();
+        assertEquals(bil.getHastighet(), 0);
+    }
+    @Test
+    void hasBattery(){
+        assertNotNull(bil.getBattery());
+    }
 }

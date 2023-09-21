@@ -1,7 +1,7 @@
 package tdd.uppgift.cool4school.fordon;
 
 public class Bil {
-
+    Battery battery;
     int hastighet = 0;
     int maxHastighet = 180;
     boolean on = false;
@@ -19,6 +19,11 @@ public class Bil {
         this.varningsblinkers = varningsblinkers;
         this.bromsljus = new Lyse();
         gear = Gear.DRIVE;
+        battery = new Battery();
+    }
+
+    public Battery getBattery() {
+        return battery;
     }
 
     public void shiftGear(){
