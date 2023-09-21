@@ -13,6 +13,7 @@ class BilTest {
     @BeforeEach
     void setUp(){
         bil = new Bil(new Lyse(),
+                new Lyse(),
                 new Lyse());
     }
 
@@ -36,5 +37,8 @@ class BilTest {
         assertNotNull(bil.getHelljus());
         assertNotNull(bil.getHalvljus());
     }
-   
+    @Test
+    void harBackLyse(){
+        assertNotNull(bil.getBakljus());
+    }
 }

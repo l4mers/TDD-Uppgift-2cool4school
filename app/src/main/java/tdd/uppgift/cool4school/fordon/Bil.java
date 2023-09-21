@@ -6,9 +6,10 @@ public class Bil {
     Lyse halvljus;
     Lyse bakljus;
 
-    public Bil(Lyse helljus, Lyse halvljus) {
+    public Bil(Lyse helljus, Lyse halvljus, Lyse bakljus) {
         this.helljus = helljus;
         this.halvljus = halvljus;
+        this.bakljus = bakljus;
     }
     public Lyse getHelljus(){
         return this.helljus;
