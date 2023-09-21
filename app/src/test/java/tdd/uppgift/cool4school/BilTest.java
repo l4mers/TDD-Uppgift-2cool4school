@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import tdd.uppgift.cool4school.fordon.Bil;
 import tdd.uppgift.cool4school.fordon.Gear;
 import tdd.uppgift.cool4school.fordon.Lyse;
+import tdd.uppgift.cool4school.fordon.Recharger;
 
 import java.util.function.BooleanSupplier;
 
@@ -12,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class BilTest {
 
     Bil bil;
+    Recharger recharger;
 
     @BeforeEach
     void setUp(){
@@ -19,6 +21,8 @@ class BilTest {
                 new Lyse(),
                 new Lyse(),
                 new Lyse());
+        recharger = new Recharger(bil);
+
     }
 
     @Test
@@ -193,4 +197,22 @@ class BilTest {
         assertEquals(bil.getBatteryLife(), 100);
         assertEquals(bil.getEmergencyBatteryLife(), 10);
     }
+
+    @Test
+    void rechargerRecharge(){
+        bil.start();
+        for (int i = 0; i < 50; i++) {
+            bil.gasa();
+        }
+        assertEquals(0, bil.getBatteryLife());
+        for (int i = 0; i < 11; i++) {
+            bil.varningsblinkersOnOff();
+        }
+        assertEquals(bil.getBatteryLife(), 0);
+        assertEquals(bil.getEmergencyBatteryLife(), 0);
+        recharger.recharge();
+        assertEquals(bil.getBatteryLife(), 100);
+        assertEquals(bil.getEmergencyBatteryLife(), 10);
+    }
+    
 }
