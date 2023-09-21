@@ -1,5 +1,7 @@
 package tdd.uppgift.cool4school.fordon;
 
+import java.util.List;
+
 public class Bil {
     Battery battery;
     int hastighet = 0;
@@ -19,7 +21,7 @@ public class Bil {
         this.varningsblinkers = varningsblinkers;
         this.bromsljus = new Lyse();
         gear = Gear.DRIVE;
-        battery = new Battery();
+        battery = new Battery(this);
     }
 
     public Battery getBattery() {
@@ -123,5 +125,9 @@ public class Bil {
         halvljus.on = false;
         helljus.on = false;
         bakljus.on = false;
+    }
+
+    public List<Lyse> getLights() {
+        return List.of(helljus, halvljus, bakljus, bromsljus);
     }
 }

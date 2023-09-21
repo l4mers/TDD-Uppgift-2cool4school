@@ -9,7 +9,13 @@ public class Lyse {
     public void onOff(Battery battery){
         on = !on;
         if(on){
-            battery.batteryLife -= 1;
+            battery.batteryConsumption(1);
         }
+        if(battery.batteryLife == 0){
+            on = false;
+        }
+    }
+    public void outOfBattery(){
+        on = false;
     }
 }

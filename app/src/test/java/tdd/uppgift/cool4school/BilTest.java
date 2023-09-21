@@ -6,6 +6,8 @@ import tdd.uppgift.cool4school.fordon.Bil;
 import tdd.uppgift.cool4school.fordon.Gear;
 import tdd.uppgift.cool4school.fordon.Lyse;
 
+import java.util.function.BooleanSupplier;
+
 import static org.junit.jupiter.api.Assertions.*;
 class BilTest {
 
@@ -154,5 +156,16 @@ class BilTest {
         bil.gasa();
         bil.gasa();
         assertEquals(bil.getHastighet(), hastighetWhenBatteryEmpty);
+    }
+    @Test
+    void noBatteryNoLight(){
+        bil.start();
+        for (int i = 0; i < 50; i++) {
+            bil.gasa();
+        }
+        bil.getLights().forEach(light ->{
+            assertFalse(light.isOn());
+        });
+
     }
 }
