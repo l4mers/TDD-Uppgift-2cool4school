@@ -222,7 +222,7 @@ class BilTest {
         assertNotNull(bil);
     }
     @Test
-    void rechargeIterations(){
+    void rechargeCost(){
         bil.start();
         for (int i = 0; i < 50; i++) {
             bil.gasa();
@@ -235,5 +235,19 @@ class BilTest {
         assertEquals(bil.getBatteryLife(), 0);
         assertEquals(bil.getEmergencyBatteryLife(), 0);
         assertEquals(recharger.recharge(), "Kostnad " + 1000 + " Kr");
+    }
+
+    @Test
+    void rechargeIterations(){
+        bil.start();
+        for (int i = 0; i < 50; i++) {
+            bil.gasa();
+        }
+        assertEquals(0, bil.getBatteryLife());
+        for (int i = 0; i < 11; i++) {
+            bil.varningsblinkersOnOff();
+        }
+        assertEquals(recharger.setBil(bil), "Batteri procent " + 0 +
+                "\nFörväntad laddtid: " + 10 + " minuter");
     }
 }
