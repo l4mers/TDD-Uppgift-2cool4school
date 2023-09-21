@@ -7,12 +7,15 @@ public class Recharger {
         return bil;
     }
 
-    public void setBil(Bil bil) {
+    public String setBil(Bil bil) {
         this.bil = bil;
+        return "Batteri procent " + bil.getBatteryLife() +
+                "\nFörväntad laddtid: " + (100 - bil.getBatteryLife()) / 10 + " minuter" ;
     }
 
-    public void recharge(){
+    public String recharge(){
+        int startingPoint = bil.getBatteryLife();
         bil.getBattery().recharge();
-        
+        return "Kostnad " + (100 - startingPoint) * 10 + " Kr";
     }
 }
