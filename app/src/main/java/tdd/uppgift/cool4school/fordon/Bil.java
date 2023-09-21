@@ -29,5 +29,14 @@ public class Bil {
     }
     public void start(){
         this.on = true;
+        this.getHalvljus().onOff();
+        this.getHelljus().onOff();
+        this.getBakljus().onOff();
+    }
+    public void off(){
+        this.on = false;
+        this.getHalvljus().onOff();
+        this.getHelljus().onOff();
+        this.getBakljus().onOff();
     }
 }

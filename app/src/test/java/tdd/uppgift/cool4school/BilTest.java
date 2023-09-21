@@ -47,4 +47,14 @@ class BilTest {
         bil.start();
         assertTrue(bil.isOn());
     }
+
+    @Test
+    void stopCarAndLight(){
+        bil.start();
+        bil.off();
+        assertFalse(bil.isOn());
+        assertFalse(bil.getBakljus().isOn());
+        assertFalse(bil.getHelljus().isOn());
+        assertFalse(bil.getHalvljus().isOn());
+    }
 }
