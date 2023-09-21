@@ -21,7 +21,7 @@ class BilTest {
                 new Lyse(),
                 new Lyse(),
                 new Lyse());
-        recharger = new Recharger(bil);
+        recharger = new Recharger();
 
     }
 
@@ -210,9 +210,15 @@ class BilTest {
         }
         assertEquals(bil.getBatteryLife(), 0);
         assertEquals(bil.getEmergencyBatteryLife(), 0);
+        recharger.setBil(bil);
         recharger.recharge();
         assertEquals(bil.getBatteryLife(), 100);
         assertEquals(bil.getEmergencyBatteryLife(), 10);
     }
-    
+    @Test
+    void connectCarToCharger(){
+        assertNull(recharger.getBil());
+        recharger.setBil(bil);
+        assertNotNull(bil);
+    }
 }
