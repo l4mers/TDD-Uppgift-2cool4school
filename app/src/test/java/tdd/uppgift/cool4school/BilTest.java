@@ -65,4 +65,12 @@ class BilTest {
         bil.varningsblinkersOnOff();
         assertTrue(bil.getVarningsblinkers().isOn());
     }
+    @Test
+    void checkHastighet(){
+        bil.start();
+        int hastighet = bil.getHastighet();
+        bil.gasa();
+        assertTrue(bil.getHastighet() > hastighet);
+        assertEquals(bil.getHastighet(), 10);
+    }
 }

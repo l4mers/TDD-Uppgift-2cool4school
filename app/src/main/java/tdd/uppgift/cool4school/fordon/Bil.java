@@ -2,6 +2,7 @@ package tdd.uppgift.cool4school.fordon;
 
 public class Bil {
 
+    int hastighet = 0;
     boolean on = false;
     Lyse helljus;
     Lyse halvljus;
@@ -16,6 +17,16 @@ public class Bil {
     }
     public Lyse getHelljus(){
         return this.helljus;
+    }
+
+    public void gasa(){
+        if(on){
+            hastighet += 10;
+        }
+    }
+
+    public int getHastighet() {
+        return hastighet;
     }
 
     public Lyse getBakljus() {
