@@ -26,6 +26,10 @@ public class Bil {
         return battery;
     }
 
+    public int getBatteryLife(){
+        return battery.batteryLife;
+    }
+
     public void shiftGear(){
         if(gear == Gear.DRIVE){
             gear = Gear.REVERSE;
@@ -61,6 +65,7 @@ public class Bil {
     public void gasa(){
         bromsljus.on = false;
         if(on) {
+            battery.batteryConsumption(5);
             hastighet += 10;
         }
         if(hastighet > maxHastighet){

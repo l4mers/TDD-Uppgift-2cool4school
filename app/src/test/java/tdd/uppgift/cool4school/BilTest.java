@@ -124,4 +124,11 @@ class BilTest {
     void hasBattery(){
         assertNotNull(bil.getBattery());
     }
+    @Test
+    void drainBattery(){
+        bil.start();
+        assertEquals(bil.getBatteryLife(), 100);
+        bil.gasa();
+        assertTrue(bil.getBatteryLife() < 100);
+    }
 }
