@@ -2,6 +2,7 @@ package tdd.uppgift.cool4school.fordon;
 
 public class Bil {
 
+    boolean on = false;
     Lyse helljus;
     Lyse halvljus;
     Lyse bakljus;
@@ -21,5 +22,12 @@ public class Bil {
 
     public Lyse getHalvljus() {
         return halvljus;
+    }
+
+    public boolean isOn(){
+        return this.on;
+    }
+    public void start(){
+        this.on = true;
     }
 }

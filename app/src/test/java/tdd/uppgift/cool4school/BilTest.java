@@ -41,4 +41,10 @@ class BilTest {
     void harBackLyse(){
         assertNotNull(bil.getBakljus());
     }
+
+    @Test
+    void startCar(){
+        bil.start();
+        assertTrue(bil.isOn());
+    }
 }
