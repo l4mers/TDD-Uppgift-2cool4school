@@ -81,4 +81,16 @@ class BilTest {
         }
         assertEquals(bil.getHastighet(), 180);
     }
+    @Test
+    void bromsa(){
+        bil.start();
+        for (int i = 0; i < 20; i++) {
+            bil.gasa();
+        }
+        assertEquals(bil.getHastighet(), 180);
+        for (int i = 0; i < 20; i++) {
+            bil.bromsa();
+        }
+        assertEquals(bil.getHastighet(), 0);
+    }
 }

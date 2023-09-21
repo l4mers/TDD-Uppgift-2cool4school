@@ -20,19 +20,19 @@ public class Bil {
         return this.helljus;
     }
 
-    public void gasa(){
-        if(on){
-            if(hastighet < maxHastighet){
-                hastighet += 10;
-            }
+    public void bromsa(){
+        hastighet =- 10;
+        if(hastighet < 0){
+            hastighet = 0;
         }
     }
 
-    public void gasa(int hastighet){
-        if(on){
-            if(hastighet <= maxHastighet){
-                this.hastighet = hastighet;
-            }
+    public void gasa(){
+        if(on) {
+            hastighet += 10;
+        }
+        if(hastighet > maxHastighet){
+            hastighet = maxHastighet;
         }
     }
 
