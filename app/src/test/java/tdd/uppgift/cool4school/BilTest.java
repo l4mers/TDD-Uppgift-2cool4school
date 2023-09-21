@@ -14,6 +14,7 @@ class BilTest {
     void setUp(){
         bil = new Bil(new Lyse(),
                 new Lyse(),
+                new Lyse(),
                 new Lyse());
     }
 
@@ -27,9 +28,10 @@ class BilTest {
     }
     @Test
     void onOffLyse(){
-        bil.getHelljus().onOff();
+        bil.start();
+        bil.lightOnOf(bil.getHelljus());
         assertTrue(bil.getHelljus().isOn());
-        bil.getHelljus().onOff();
+        bil.lightOnOf(bil.getHelljus());
         assertFalse(bil.getHelljus().isOn());
     }
     @Test
@@ -56,5 +58,11 @@ class BilTest {
         assertFalse(bil.getBakljus().isOn());
         assertFalse(bil.getHelljus().isOn());
         assertFalse(bil.getHalvljus().isOn());
+    }
+    @Test
+    void checkVarningsblinkers(){
+        bil.off();
+        bil.varningsblinkersOnOff();
+        assertTrue(bil.getVarningsblinkers().isOn());
     }
 }
