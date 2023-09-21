@@ -65,8 +65,10 @@ public class Bil {
     public void gasa(){
         bromsljus.onOff(battery);
         if(on) {
-            battery.batteryConsumption(5);
-            hastighet += 10;
+            if(getBatteryLife() > 0){
+                battery.batteryConsumption(5);
+                hastighet += 10;
+            }
         }
         if(hastighet > maxHastighet){
             hastighet = maxHastighet;

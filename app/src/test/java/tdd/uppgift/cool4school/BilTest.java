@@ -139,4 +139,20 @@ class BilTest {
         bil.lightOnOf(bil.getHelljus());
         assertTrue(bil.getBatteryLife() < batteryLifeAfterStart);
     }
+    @Test
+    void emptyBattery(){
+        bil.start();
+        for (int i = 0; i < 20; i++) {
+            bil.gasa();
+        }
+        assertEquals(bil.getHastighet(), 180);
+        bil.bromsa();
+        bil.bromsa();
+        bil.bromsa();
+        assertNotEquals(180, bil.getHastighet());
+        int hastighetWhenBatteryEmpty = bil.getHastighet();
+        bil.gasa();
+        bil.gasa();
+        assertEquals(bil.getHastighet(), hastighetWhenBatteryEmpty);
+    }
 }
