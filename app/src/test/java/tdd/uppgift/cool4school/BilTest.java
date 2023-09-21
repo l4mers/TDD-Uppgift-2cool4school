@@ -1,13 +1,25 @@
 package tdd.uppgift.cool4school;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tdd.uppgift.cool4school.fordon.Bil;
 
 import static org.junit.jupiter.api.Assertions.*;
 class BilTest {
 
-    @Test void validBil(){
-        Bil bil = new Bil();
-        assertNotNull(bil.getBil());
+    Bil bil;
+
+    @BeforeEach
+    void setUp(){
+        bil = new Bil();
+    }
+
+    @Test
+    void validBil(){
+        assertNotNull(bil);
+    }
+    @Test
+    void harLyse(){
+        assertNotNull(bil.harLyse());
     }
 }

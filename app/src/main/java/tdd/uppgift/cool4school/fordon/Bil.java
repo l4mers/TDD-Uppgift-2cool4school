@@ -2,13 +2,12 @@ package tdd.uppgift.cool4school.fordon;
 
 public class Bil {
 
-    String bil;
+    Lyse lyse;
 
-    public String getBil() {
-        return bil;
+    public void setLyse(Lyse lyse){
+        this.lyse = lyse;
     }
-
-    public void setBil(String bil) {
-        this.bil = bil;
+    public Lyse harLyse(){
+        return this.lyse;
     }
 }
