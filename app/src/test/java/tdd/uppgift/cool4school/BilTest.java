@@ -30,10 +30,9 @@ class BilTest {
     @Test
     void onOffLyse(){
         bil.start();
-        bil.lightOnOf(bil.getHelljus());
-        assertTrue(bil.getHelljus().isOn());
-        bil.lightOnOf(bil.getHelljus());
-        assertFalse(bil.getHelljus().isOn());
+        assertTrue(bil.getHalvljus().isOn());
+        bil.lightOnOf(bil.getHalvljus());
+        assertFalse(bil.getHalvljus().isOn());
     }
     @Test
     void harHelOchHalvLjus(){
@@ -127,8 +126,17 @@ class BilTest {
     @Test
     void drainBattery(){
         bil.start();
-        assertEquals(bil.getBatteryLife(), 100);
+        int batteryLifeAfterStart = bil.getBatteryLife();
+        assertEquals(bil.getBatteryLife(), batteryLifeAfterStart);
         bil.gasa();
-        assertTrue(bil.getBatteryLife() < 100);
+        assertTrue(bil.getBatteryLife() < batteryLifeAfterStart);
+    }
+    @Test
+    void drainBatteryOnLight(){
+        bil.start();
+        int batteryLifeAfterStart = bil.getBatteryLife();
+        assertEquals(bil.getBatteryLife(), batteryLifeAfterStart);
+        bil.lightOnOf(bil.getHelljus());
+        assertTrue(bil.getBatteryLife() < batteryLifeAfterStart);
     }
 }

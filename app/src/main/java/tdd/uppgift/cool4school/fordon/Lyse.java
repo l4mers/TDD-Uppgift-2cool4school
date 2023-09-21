@@ -6,7 +6,10 @@ public class Lyse {
     public boolean isOn() {
         return on;
     }
-    public void onOff(){
+    public void onOff(Battery battery){
         on = !on;
+        if(on){
+            battery.batteryLife -= 1;
+        }
     }
 }

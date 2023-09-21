@@ -55,15 +55,15 @@ public class Bil {
     }
 
     public void bromsa(){
-        bromsljus.on = true;
-        hastighet =- 10;
+        bromsljus.onOff(battery);
+        hastighet -= 10;
         if(hastighet < 0){
             hastighet = 0;
         }
     }
 
     public void gasa(){
-        bromsljus.on = false;
+        bromsljus.onOff(battery);
         if(on) {
             battery.batteryConsumption(5);
             hastighet += 10;
@@ -95,12 +95,12 @@ public class Bil {
 
     public void lightOnOf(Lyse light){
         if(this.on){
-            light.onOff();
+            light.onOff(battery);
         }
     }
 
     public void varningsblinkersOnOff(){
-        varningsblinkers.onOff();
+        varningsblinkers.onOff(battery);
     }
 
     public boolean isLightOn(Lyse light){
@@ -109,8 +109,8 @@ public class Bil {
 
     public void start(){
         this.on = true;
-        halvljus.on = true;
-        bakljus.on = true;
+        halvljus.onOff(battery);
+        bakljus.onOff(battery);
     }
     public void off(){
         this.on = false;
