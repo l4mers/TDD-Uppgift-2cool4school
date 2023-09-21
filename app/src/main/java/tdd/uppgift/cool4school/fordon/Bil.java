@@ -9,13 +9,32 @@ public class Bil {
     Lyse halvljus;
     Lyse bakljus;
     Lyse varningsblinkers;
+    Gear gear;
 
     public Bil(Lyse helljus, Lyse halvljus, Lyse bakljus, Lyse varningsblinkers) {
         this.helljus = helljus;
         this.halvljus = halvljus;
         this.bakljus = bakljus;
         this.varningsblinkers = varningsblinkers;
+        gear = Gear.DRIVE;
     }
+
+    public void shiftGear(){
+        if(gear == Gear.DRIVE){
+            gear = Gear.REVERSE;
+        } else{
+            gear = Gear.DRIVE;
+        }
+    }
+
+    public Gear getGear() {
+        return gear;
+    }
+
+    public void setGear(Gear gear) {
+        this.gear = gear;
+    }
+
     public Lyse getHelljus(){
         return this.helljus;
     }

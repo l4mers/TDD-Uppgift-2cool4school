@@ -3,6 +3,7 @@ package tdd.uppgift.cool4school;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tdd.uppgift.cool4school.fordon.Bil;
+import tdd.uppgift.cool4school.fordon.Gear;
 import tdd.uppgift.cool4school.fordon.Lyse;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -92,5 +93,11 @@ class BilTest {
             bil.bromsa();
         }
         assertEquals(bil.getHastighet(), 0);
+    }
+    @Test
+    void hasGear(){
+        assertEquals(bil.getGear(), Gear.DRIVE);
+        bil.shiftGear();
+        assertEquals(bil.getGear(), Gear.REVERSE);
     }
 }
