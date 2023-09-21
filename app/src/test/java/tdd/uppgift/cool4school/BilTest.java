@@ -73,4 +73,12 @@ class BilTest {
         assertTrue(bil.getHastighet() > hastighet);
         assertEquals(bil.getHastighet(), 10);
     }
+    @Test
+    void maxFart(){
+        bil.start();
+        for (int i = 0; i < 20; i++) {
+            bil.gasa();
+        }
+        assertEquals(bil.getHastighet(), 180);
+    }
 }

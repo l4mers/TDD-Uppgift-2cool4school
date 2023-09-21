@@ -3,6 +3,7 @@ package tdd.uppgift.cool4school.fordon;
 public class Bil {
 
     int hastighet = 0;
+    int maxHastighet = 180;
     boolean on = false;
     Lyse helljus;
     Lyse halvljus;
@@ -21,7 +22,17 @@ public class Bil {
 
     public void gasa(){
         if(on){
-            hastighet += 10;
+            if(hastighet < maxHastighet){
+                hastighet += 10;
+            }
+        }
+    }
+
+    public void gasa(int hastighet){
+        if(on){
+            if(hastighet <= maxHastighet){
+                this.hastighet = hastighet;
+            }
         }
     }
 
