@@ -12,7 +12,8 @@ class BilTest {
 
     @BeforeEach
     void setUp(){
-        bil = new Bil(new Lyse());
+        bil = new Bil(new Lyse(),
+                new Lyse());
     }
 
     @Test
@@ -21,14 +22,19 @@ class BilTest {
     }
     @Test
     void harLyse(){
-        assertNotNull(bil.getLyse());
+        assertNotNull(bil.getHelljus());
     }
     @Test
     void onOffLyse(){
-        bil.lightOnOff();
-        assertTrue(bil.isLightOn());
-        bil.lightOnOff();
-        assertFalse(bil.isLightOn());
+        bil.getHelljus().onOff();
+        assertTrue(bil.getHelljus().isOn());
+        bil.getHelljus().onOff();
+        assertFalse(bil.getHelljus().isOn());
     }
-    
+    @Test
+    void harHelOchHalvLjus(){
+        assertNotNull(bil.getHelljus());
+        assertNotNull(bil.getHalvljus());
+    }
+   
 }

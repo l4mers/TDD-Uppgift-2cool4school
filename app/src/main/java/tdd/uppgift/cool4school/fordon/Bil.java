@@ -2,23 +2,23 @@ package tdd.uppgift.cool4school.fordon;
 
 public class Bil {
 
-    Lyse lyse;
+    Lyse helljus;
+    Lyse halvljus;
+    Lyse bakljus;
 
-    public Bil(Lyse lyse) {
-        this.lyse = lyse;
+    public Bil(Lyse helljus, Lyse halvljus) {
+        this.helljus = helljus;
+        this.halvljus = halvljus;
     }
-    public boolean isLightOn() {
-        return this.lyse.on;
-    }
-
-    public void lightOnOff(){
-        lyse.on = !lyse.on;
+    public Lyse getHelljus(){
+        return this.helljus;
     }
 
-    public void setLyse(Lyse lyse){
-        this.lyse = lyse;
+    public Lyse getBakljus() {
+        return bakljus;
     }
-    public Lyse getLyse(){
-        return this.lyse;
+
+    public Lyse getHalvljus() {
+        return halvljus;
     }
 }
