@@ -166,6 +166,31 @@ class BilTest {
         bil.getLights().forEach(light ->{
             assertFalse(light.isOn());
         });
-
+    }
+    @Test
+    void batteryForVarningsblinkers(){
+        bil.start();
+        for (int i = 0; i < 50; i++) {
+            bil.gasa();
+        }
+        assertEquals(0, bil.getBatteryLife());
+        bil.varningsblinkersOnOff();
+        assertTrue(bil.getVarningsblinkers().isOn());
+    }
+    @Test
+    void rechargeBattery(){
+        bil.start();
+        for (int i = 0; i < 50; i++) {
+            bil.gasa();
+        }
+        assertEquals(0, bil.getBatteryLife());
+        for (int i = 0; i < 11; i++) {
+            bil.varningsblinkersOnOff();
+        }
+        assertEquals(bil.getBatteryLife(), 0);
+        assertEquals(bil.getEmergencyBatteryLife(), 0);
+        bil.getBattery().recharge();
+        assertEquals(bil.getBatteryLife(), 100);
+        assertEquals(bil.getEmergencyBatteryLife(), 10);
     }
 }

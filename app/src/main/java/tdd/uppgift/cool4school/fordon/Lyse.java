@@ -11,9 +11,6 @@ public class Lyse {
         if(on){
             battery.batteryConsumption(1);
         }
-        if(battery.batteryLife == 0){
-            on = false;
-        }
     }
     public void outOfBattery(){
         on = false;

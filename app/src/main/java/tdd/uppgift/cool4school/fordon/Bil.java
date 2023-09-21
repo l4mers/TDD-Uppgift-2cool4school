@@ -104,7 +104,11 @@ public class Bil {
     }
 
     public void varningsblinkersOnOff(){
-        varningsblinkers.onOff(battery);
+        if(getBatteryLife() > 0){
+            varningsblinkers.onOff(battery);
+        }else {
+            battery.safetyLight();
+        }
     }
 
     public boolean isLightOn(Lyse light){
@@ -129,5 +133,9 @@ public class Bil {
 
     public List<Lyse> getLights() {
         return List.of(helljus, halvljus, bakljus, bromsljus);
+    }
+
+    public int getEmergencyBatteryLife() {
+        return battery.safetyBattery;
     }
 }
