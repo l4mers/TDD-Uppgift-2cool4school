@@ -100,4 +100,13 @@ class BilTest {
         bil.shiftGear();
         assertEquals(bil.getGear(), Gear.REVERSE);
     }
+    @Test
+    void breakAndLight(){
+        bil.start();
+        bil.gasa();
+        bil.gasa();
+        assertFalse(bil.isLightOn(bil.getBromsljus()));
+        bil.bromsa();
+        assertTrue(bil.isLightOn(bil.getBromsljus()));
+    }
 }

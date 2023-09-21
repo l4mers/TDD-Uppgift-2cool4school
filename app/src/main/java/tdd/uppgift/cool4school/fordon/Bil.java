@@ -9,6 +9,7 @@ public class Bil {
     Lyse halvljus;
     Lyse bakljus;
     Lyse varningsblinkers;
+    Lyse bromsljus;
     Gear gear;
 
     public Bil(Lyse helljus, Lyse halvljus, Lyse bakljus, Lyse varningsblinkers) {
@@ -16,6 +17,7 @@ public class Bil {
         this.halvljus = halvljus;
         this.bakljus = bakljus;
         this.varningsblinkers = varningsblinkers;
+        this.bromsljus = new Lyse();
         gear = Gear.DRIVE;
     }
 
@@ -25,6 +27,10 @@ public class Bil {
         } else{
             gear = Gear.DRIVE;
         }
+    }
+
+    public Lyse getBromsljus() {
+        return bromsljus;
     }
 
     public Gear getGear() {
@@ -40,6 +46,7 @@ public class Bil {
     }
 
     public void bromsa(){
+        bromsljus.on = true;
         hastighet =- 10;
         if(hastighet < 0){
             hastighet = 0;
@@ -47,6 +54,7 @@ public class Bil {
     }
 
     public void gasa(){
+        bromsljus.on = false;
         if(on) {
             hastighet += 10;
         }
