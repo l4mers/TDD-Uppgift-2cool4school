@@ -31,9 +31,9 @@ public class Bil {
         if(on) {
             hastighet += 10;
         }
-        if(hastighet > maxHastighet){
-            hastighet = maxHastighet;
-        }
+//        if(hastighet > maxHastighet){
+//            hastighet = maxHastighet;
+//        }
     }
 
     public int getHastighet() {
