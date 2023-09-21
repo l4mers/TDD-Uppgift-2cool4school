@@ -13,5 +13,6 @@ public class Recharger {
 
     public void recharge(){
         bil.getBattery().recharge();
+        
     }
 }
